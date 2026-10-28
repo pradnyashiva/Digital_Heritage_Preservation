@@ -1,0 +1,1032 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Alibag Heritage | History & Culture</title>
+
+<style>
+:root {
+    --navy: #173747;
+    --navy-light: #254e60;
+    --cream: #faf5e9;
+    --gold: #c9a15b;
+    --text: #28343b;
+    --muted: #66747b;
+    --white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--cream);
+    color: var(--text);
+}
+
+/* NAVBAR */
+
+header {
+    background: var(--navy);
+    color: white;
+    padding: 18px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    font-family: Georgia, serif;
+    font-size: 27px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: var(--gold);
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 22px;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+/* HERO SECTION */
+
+.hero {
+    min-height: 440px;
+    padding: 75px 8%;
+    display: flex;
+    align-items: center;
+    color: white;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(12, 35, 48, 0.88),
+            rgba(12, 35, 48, 0.28)
+        ),
+        url("pictures/kolaba.jpg") center/cover no-repeat;
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.hero-label {
+    color: #f0cc86;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.hero h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(38px, 6vw, 64px);
+    line-height: 1.12;
+    margin: 18px 0;
+}
+
+.hero p {
+    font-size: 17px;
+    line-height: 1.8;
+    max-width: 600px;
+}
+
+.primary-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 13px 22px;
+    background: var(--gold);
+    color: var(--navy);
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+/* INTRODUCTION */
+
+.intro {
+    text-align: center;
+    max-width: 850px;
+    margin: auto;
+    padding: 48px 22px 25px;
+}
+
+.intro h2,
+.section-heading {
+    font-family: Georgia, serif;
+    color: var(--navy);
+    font-size: 34px;
+    margin-bottom: 15px;
+}
+
+.intro p {
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+/* SEARCH AND FILTERS */
+
+.controls {
+    max-width: 1150px;
+    margin: 20px auto 30px;
+    padding: 0 22px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+#searchInput {
+    flex: 1;
+    min-width: 220px;
+    padding: 13px 15px;
+    border: 1px solid #d8cfbd;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.filters button {
+    padding: 12px 15px;
+    border: 1px solid #d8cfbd;
+    background: white;
+    color: var(--navy);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.filters button.active,
+.filters button:hover {
+    background: var(--navy);
+    color: white;
+}
+
+/* PLACES CARDS */
+
+.places-grid {
+    max-width: 1150px;
+    margin: auto;
+    padding: 0 22px 65px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.place-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(20, 40, 50, 0.08);
+    transition: transform 0.25s;
+}
+
+.place-card:hover {
+    transform: translateY(-5px);
+}
+
+.place-card img {
+    display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    background: #e4ddcf;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.category {
+    display: inline-block;
+    padding: 6px 9px;
+    background: #f3e7cc;
+    color: #79591e;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 3px;
+}
+
+.place-card h3 {
+    color: var(--navy);
+    font-family: Georgia, serif;
+    font-size: 23px;
+    margin: 14px 0 10px;
+}
+
+.place-card p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.read-more {
+    color: #95691e;
+    font-weight: bold;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 8px 0 0;
+    font-size: 14px;
+}
+
+/* DETAIL PAGE */
+
+.detail-page {
+    display: none;
+    max-width: 1100px;
+    margin: auto;
+    padding: 35px 22px 70px;
+}
+
+.back-btn {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 4px;
+    background: var(--navy);
+    color: white;
+    cursor: pointer;
+    margin-bottom: 25px;
+}
+
+.detail-page h2 {
+    font-family: Georgia, serif;
+    color: var(--navy);
+    font-size: clamp(32px, 5vw, 46px);
+    margin: 18px 0 10px;
+}
+
+.detail-page h3 {
+    font-family: Georgia, serif;
+    color: var(--navy);
+    font-size: 25px;
+    margin-top: 30px;
+}
+
+.detail-description {
+    color: #53616a;
+    line-height: 1.9;
+    font-size: 16px;
+}
+
+.detail-main-image {
+    width: 100%;
+    height: 430px;
+    object-fit: cover;
+    border-radius: 8px;
+    background: #e4ddcf;
+    margin: 20px 0;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 6px;
+    background: #e4ddcf;
+}
+
+.highlights {
+    line-height: 2;
+    color: #53616a;
+    padding-left: 22px;
+}
+
+.facts {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+    margin-top: 28px;
+}
+
+.fact {
+    background: white;
+    padding: 18px;
+    border-left: 4px solid var(--gold);
+    line-height: 1.6;
+}
+
+.fact strong {
+    display: block;
+    color: var(--navy);
+    margin-bottom: 8px;
+}
+
+/* FOOTER */
+
+footer {
+    background: var(--navy);
+    color: white;
+    text-align: center;
+    padding: 28px 18px;
+    font-size: 14px;
+}
+
+footer span {
+    color: var(--gold);
+}
+
+.no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 35px;
+    color: var(--muted);
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 850px) {
+    .places-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 560px) {
+    header {
+        padding: 18px 5%;
+    }
+
+    nav a {
+        margin-left: 10px;
+    }
+
+    .hero {
+        min-height: 380px;
+        padding: 55px 6%;
+    }
+
+    .places-grid {
+        grid-template-columns: 1fr;
+        padding: 0 16px 45px;
+    }
+
+    .controls {
+        padding: 0 16px;
+    }
+
+    .gallery,
+    .facts {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-main-image {
+        height: 270px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<header>
+    <div class="logo">Alibag <span>Heritage</span></div>
+
+    <nav>
+        <a href="#" onclick="showHome(); return false;">Home</a>
+        <a href="#places" onclick="showHome();">Places</a>
+        <a href="#about" onclick="showHome();">About</a>
+    </nav>
+</header>
+
+<!-- HERO SECTION -->
+
+<section class="hero" id="hero">
+    <div class="hero-content">
+        <div class="hero-label">
+            History • Culture • Coastal Maharashtra
+        </div>
+
+        <h1>Discover the Heritage of Alibag</h1>
+
+        <p>
+            Explore historic forts, beautiful temples and cultural
+            landmarks that tell the story of Alibag and the Konkan coast.
+        </p>
+
+        <a class="primary-btn" href="#places">
+            Explore Places ↓
+        </a>
+    </div>
+</section>
+
+<!-- HOMEPAGE -->
+
+<main id="homePage">
+
+    <section class="intro" id="about">
+        <h2>A Journey Through History</h2>
+
+        <p>
+            Discover the rich history of Alibag through its ancient
+            temples, coastal forts and historic settlements. Explore
+            their stories, architecture and cultural importance.
+        </p>
+    </section>
+
+    <!-- SEARCH -->
+
+    <section class="controls" id="places">
+
+        <input
+            type="search"
+            id="searchInput"
+            placeholder="Search heritage places..."
+            aria-label="Search heritage places"
+        >
+
+        <div class="filters">
+            <button class="active" data-filter="All">All Places</button>
+            <button data-filter="Fort">Forts</button>
+            <button data-filter="Temple">Temples</button>
+            <button data-filter="Heritage">Heritage</button>
+        </div>
+
+    </section>
+
+    <!-- CARDS ARE CREATED BY JAVASCRIPT -->
+
+    <section class="places-grid" id="placesGrid"></section>
+
+</main>
+
+<!-- DETAILS PAGE -->
+
+<section class="detail-page" id="detailPage">
+
+    <button class="back-btn" onclick="showHome()">
+        ← Back to All Places
+    </button>
+
+    <div id="detailContent"></div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+    Explore the stories and culture of <span>Alibag</span>
+    <br><br>
+    Heritage • History • Culture
+</footer>
+
+<script>
+
+/*
+====================================================
+IMAGE LOCATIONS
+
+Change these paths if your image filenames differ.
+
+Example:
+image: "pictures/kolaba.jpg"
+
+means:
+Your project folder / pictures / kolaba.jpg
+====================================================
+*/
+
+const places = [
+
+{
+    id: "kolaba",
+    name: "Kolaba Fort",
+    category: "Fort",
+    area: "Near Alibag Beach",
+    image: "pictures/kolaba_fort_2.jpg",
+    gallery: [
+        "pictures/kolaba_fort_1.jpg",
+        "pictures/kolaba_fort_3.jpg",
+        "pictures/kolaba_fort_4.jpg"
+    ],
+    description:
+        "Kolaba Fort is a historic sea fort situated close to Alibag Beach. Surrounded by the Arabian Sea, it is one of the best-known historical landmarks in the region.",
+    history:
+        "Kolaba Fort is associated with Maratha naval history and Kanhoji Angre. Its coastal position made it an important defensive stronghold. Visitors should check tide timings before planning a visit.",
+    highlights: [
+        "Historic sea fort near Alibag Beach",
+        "Associated with Maratha naval history",
+        "Stone walls, gateways and temple structures"
+    ]
+},
+
+{
+    id: "hirakot",
+    name: "Hirakot Fort",
+    category: "Fort",
+    area: "Alibag Town",
+    image: "pictures/hirakot_fort_1.jpg",
+    gallery: [
+        "pictures/hirakot_fort_2.jpg",
+        "pictures/hirakot_fort_3.jpg",
+        "pictures/hirakot_fort_4.jpg"
+    ],
+    description:
+        "Hirakot Fort is a historic fortification situated within Alibag town. Its strong walls reflect the defensive history of the region.",
+    history:
+        "Hirakot is connected with the coastal defence history of Alibag. Today, it remains a local heritage landmark surrounded by the modern town.",
+    highlights: [
+        "Located in Alibag town",
+        "Historic defensive structure",
+        "Part of the region's heritage"
+    ]
+},
+
+{
+    id: "khanderi",
+    name: "Khanderi Fort",
+    category: "Fort",
+    area: "Island off the Alibag Coast",
+    image: "pictures/khanderi_fort_1.jpg",
+    gallery: [
+        "pictures/khanderi_fort_2.jpg",
+        "pictures/khanderi_fort_3.jpg"
+    ],
+    description:
+        "Khanderi Fort is a historic island fort off the Maharashtra coast. Its location made it important for protecting maritime routes.",
+    history:
+        "Khanderi played a strategic role in coastal defence. The island also has a lighthouse. Visitors should arrange boat transport and check access conditions before travelling.",
+    highlights: [
+        "Historic island fort",
+        "Important coastal defence location",
+        "Lighthouse on the island"
+    ]
+},
+
+{
+    id: "underi",
+    name: "Underi Fort",
+    category: "Fort",
+    area: "Near Khanderi Island",
+    image: "pictures/underi_fort_1.jpg",
+    gallery: [
+        "pictures/underi.jpg",
+        "pictures/underi.jpg",
+        "pictures/underi.jpg"
+    ],
+    description:
+        "Underi Fort is a small island fort near Khanderi. It is part of the historic network of forts along the Konkan coast.",
+    history:
+        "Its position at sea made Underi useful as a defensive point. It forms part of the coastal history of the Alibag region.",
+    highlights: [
+        "Island fort near Khanderi",
+        "Strategic coastal location",
+        "Part of the Konkan fort network"
+    ]
+},
+
+{
+    id: "kankeshwar",
+    name: "Kankeshwar Temple",
+    category: "Temple",
+    area: "Near Mapgaon",
+    image: "pictures/kankeshwar_temple_1.jpg",
+    gallery: [
+        "pictures/kankeshwar_temple_2.jpg",
+        "pictures/kankeshwar_temple_3.jpg",
+        "pictures/kankeshwar_temple_4.jpg"
+    ],
+    description:
+        "Kanakeshwar Temple is a well-known hilltop temple dedicated to Lord Shiva, surrounded by greenery near Alibag.",
+    history:
+        "The temple is known for its religious importance and peaceful natural surroundings. Visitors reach the hilltop by climbing a long flight of steps.",
+    highlights: [
+        "Dedicated to Lord Shiva",
+        "Hilltop temple reached by steps",
+        "Green surroundings and scenic views"
+    ]
+},
+
+{
+    id: "balaji",
+    name: "Balaji Temple",
+    category: "Temple",
+    area: "Alibag Region",
+    image: "pictures/balaji_temple_2.jpg",
+    gallery: [
+        "pictures/balaji_temple_2.jpg",
+
+    ],
+    description:
+        "Balaji temples are dedicated to Lord Vishnu and are important places of worship. This entry represents a Balaji temple in the Alibag region.",
+    history:
+        "Temple traditions and history depend on the specific shrine. Confirm the exact location and opening times locally before visiting.",
+    highlights: [
+        "Place of worship",
+        "Traditional temple architecture",
+        "Part of local religious life"
+    ]
+},
+
+{
+    id: "shitaladevi",
+    name: "Shitaladevi Temple",
+    category: "Temple",
+    area: "Alibag Region",
+    image: "pictures/shitladevi_temple_1.jpg",
+    gallery: [
+        "pictures/shitladevi_temple_2.jpg",
+        "pictures/shitladevi_temple_3.jpg"
+    ],
+    description:
+        "Shitaladevi Temple represents the local religious traditions associated with the worship of Goddess Shitaladevi.",
+    history:
+        "Temples dedicated to Shitaladevi form part of the religious and cultural traditions of Maharashtra. Local festival dates and rituals may vary.",
+    highlights: [
+        "Dedicated to Shitaladevi",
+        "Local religious traditions",
+        "Community worship and festivals"
+    ]
+},
+
+{
+    id: "rameshwar",
+    name: "Rameshwar Mandir",
+    category: "Temple",
+    area: "Alibag Region",
+    image: "pictures/rameshwar_temple_1.jpg",
+    gallery: [
+        "pictures/rameshwar_temple_2.jpg",
+        "pictures/rameshwar_temple_3.jpg",
+        "pictures/rameshwar_temple_4.jpg"
+    ],
+    description:
+        "Rameshwar Mandir is a traditional temple name associated with the worship of Lord Shiva in Maharashtra.",
+    history:
+        "Local temples are important places of worship and community gatherings. Check the exact shrine location and local information before visiting.",
+    highlights: [
+        "Associated with Lord Shiva",
+        "Traditional place of worship",
+        "Part of Konkan cultural life"
+    ]
+},
+
+{
+    id: "mukhari",
+    name: "Mukhari Ganapati Mandir",
+    category: "Temple",
+    area: "Alibag Region",
+    image: "pictures/ganpati_temple_1.jpg",
+    gallery: [
+        "pictures/ganpati_temple_2.jpg",
+        "pictures/ganpati_temple_3.jpg"
+    ],
+    description:
+        "Mukhari Ganapati Mandir is listed as a local heritage place associated with the worship of Lord Ganapati.",
+    history:
+        "Ganapati worship is an important part of Maharashtra's cultural and religious life, especially during Ganesh Chaturthi. Verify specific local history with the temple or community.",
+    highlights: [
+        "Associated with Lord Ganapati",
+        "Local devotional traditions",
+        "Connected with Maharashtra's religious culture"
+    ]
+},
+
+
+{
+    id: "revdanda",
+    name: "Revdanda Fort",
+    category: "Fort",
+    area: "Revdanda",
+    image: "pictures/revdanda_fort_1.jpg",
+    gallery: [
+        "pictures/revdanda_fort_2.jpg",
+        "pictures/revdanda_fort_3.jpeg"
+    ],
+    description:
+        "Revdanda Fort is a coastal fort near the mouth of the Kundalika River. Its remains reflect the history of European powers along the Konkan coast.",
+    history:
+        "The fort is associated with Portuguese presence in the region. Sections of its old walls and gateways remain, although their condition varies.",
+    highlights: [
+        "Historic coastal fort",
+        "Portuguese-era heritage",
+        "Old fort walls and gateways"
+    ]
+},
+
+{
+    id: "kanhoji",
+    name: "Kanhoji Angre Samadhi",
+    category: "Heritage",
+    area: "Alibag",
+    image: "pictures/samadhi_1.jpg",
+    gallery: [
+        "pictures/samadhi_2.jpg",
+        "pictures/samadhi_3.jpg",
+        "pictures/samadhi_.jpg"
+    ],
+    description:
+        "Kanhoji Angre was a prominent Maratha naval commander associated with the defence of India's western coast.",
+    history:
+        "Kanhoji Angre's legacy is closely connected with the sea forts around Alibag and the history of Maratha maritime defence. The memorial is a heritage stop for those interested in this history.",
+    highlights: [
+        "Commemorates Kanhoji Angre",
+        "Connected with Maratha naval history",
+        "Important regional heritage landmark"
+    ]
+}
+
+];
+
+/* IMAGE FALLBACK */
+
+function setImageFallback(img) {
+    img.onerror = null;
+    img.style.display = "none";
+
+    const message = document.createElement("div");
+    message.textContent = "Image not found. Check the image path.";
+    message.style.cssText =
+        "padding:25px;background:#eee6d8;color:#654f31;text-align:center;font-size:13px;";
+
+    img.parentNode.insertBefore(message, img);
+}
+
+/* CREATE IMAGE */
+
+function createImage(src, alt, className) {
+    const img = document.createElement("img");
+
+    img.src = src;
+    img.alt = alt;
+    img.className = className || "";
+    img.onerror = function () {
+        setImageFallback(img);
+    };
+
+    return img;
+}
+
+/* SHOW PLACE CARDS */
+
+let activeFilter = "All";
+
+function renderPlaces() {
+
+    const grid = document.getElementById("placesGrid");
+    const search = document.getElementById("searchInput")
+        .value.trim().toLowerCase();
+
+    const filtered = places.filter(function (place) {
+
+        const matchesFilter =
+            activeFilter === "All" ||
+            place.category === activeFilter;
+
+        const searchable =
+            place.name + " " +
+            place.area + " " +
+            place.description + " " +
+            place.category;
+
+        const matchesSearch =
+            searchable.toLowerCase().includes(search);
+
+        return matchesFilter && matchesSearch;
+    });
+
+    grid.innerHTML = "";
+
+    if (filtered.length === 0) {
+        grid.innerHTML =
+            '<div class="no-results">No places found. Try another search.</div>';
+        return;
+    }
+
+    filtered.forEach(function (place) {
+
+        const card = document.createElement("article");
+        card.className = "place-card";
+
+        const img = createImage(
+            place.image,
+            place.name,
+            ""
+        );
+
+        card.appendChild(img);
+
+        const content = document.createElement("div");
+        content.className = "card-content";
+
+        content.innerHTML = `
+            <span class="category">${place.category}</span>
+            <h3>${place.name}</h3>
+            <p>${place.description}</p>
+            <button class="read-more">Explore Place →</button>
+        `;
+
+        content.querySelector("button").addEventListener("click", function () {
+            openPlace(place.id);
+        });
+
+        card.appendChild(content);
+
+        card.addEventListener("click", function (event) {
+            if (!event.target.closest("button")) {
+                openPlace(place.id);
+            }
+        });
+
+        grid.appendChild(card);
+    });
+}
+
+/* OPEN DETAILS PAGE */
+
+function openPlace(id) {
+
+    const place = places.find(function (item) {
+        return item.id === id;
+    });
+
+    if (!place) return;
+
+    document.getElementById("hero").style.display = "none";
+    document.getElementById("homePage").style.display = "none";
+
+    const detailPage = document.getElementById("detailPage");
+    const content = document.getElementById("detailContent");
+
+    detailPage.style.display = "block";
+    content.innerHTML = "";
+
+    const category = document.createElement("span");
+    category.className = "category";
+    category.textContent = place.category;
+
+    const title = document.createElement("h2");
+    title.textContent = place.name;
+
+    const location = document.createElement("p");
+    location.className = "detail-description";
+    location.innerHTML = "<strong>Location:</strong> " + place.area;
+
+    const mainImage = createImage(
+        place.image,
+        place.name,
+        "detail-main-image"
+    );
+
+    const description = document.createElement("p");
+    description.className = "detail-description";
+    description.textContent = place.description;
+
+    const historyTitle = document.createElement("h3");
+    historyTitle.textContent = "History and Importance";
+
+    const history = document.createElement("p");
+    history.className = "detail-description";
+    history.textContent = place.history;
+
+    const highlightsTitle = document.createElement("h3");
+    highlightsTitle.textContent = "Important Highlights";
+
+    const highlights = document.createElement("ul");
+    highlights.className = "highlights";
+
+    place.highlights.forEach(function (item) {
+        const li = document.createElement("li");
+        li.textContent = item;
+        highlights.appendChild(li);
+    });
+
+    const galleryTitle = document.createElement("h3");
+    galleryTitle.textContent = "Photo Gallery";
+
+    const gallery = document.createElement("div");
+    gallery.className = "gallery";
+
+    place.gallery.forEach(function (photo, index) {
+        gallery.appendChild(
+            createImage(photo, place.name + " photo " + (index + 1), "")
+        );
+    });
+
+    const facts = document.createElement("div");
+    facts.className = "facts";
+
+    facts.innerHTML = `
+        <div class="fact">
+            <strong>Category</strong>
+            ${place.category}
+        </div>
+
+        <div class="fact">
+            <strong>Location</strong>
+            ${place.area}
+        </div>
+
+        <div class="fact">
+            <strong>Visitor Tip</strong>
+            Check local access, opening times and conditions before visiting.
+        </div>
+    `;
+
+    content.append(
+        category,
+        title,
+        location,
+        mainImage,
+        description,
+        historyTitle,
+        history,
+        highlightsTitle,
+        highlights,
+        galleryTitle,
+        gallery,
+        facts
+    );
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+/* RETURN TO HOMEPAGE */
+
+function showHome() {
+
+    document.getElementById("hero").style.display = "flex";
+    document.getElementById("homePage").style.display = "block";
+    document.getElementById("detailPage").style.display = "none";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+    renderPlaces();
+}
+
+/* SEARCH EVENT */
+
+document.getElementById("searchInput")
+    .addEventListener("input", renderPlaces);
+
+/* FILTER EVENT */
+
+document.querySelector(".filters")
+    .addEventListener("click", function (event) {
+
+        const button = event.target.closest("button[data-filter]");
+
+        if (!button) return;
+
+        activeFilter = button.dataset.filter;
+
+        document.querySelectorAll(".filters button")
+            .forEach(function (item) {
+                item.classList.toggle("active", item === button);
+            });
+
+        renderPlaces();
+    });
+
+/* START WEBSITE */
+
+renderPlaces();
+
+</script>
+
+</body>
+</html>
+```
